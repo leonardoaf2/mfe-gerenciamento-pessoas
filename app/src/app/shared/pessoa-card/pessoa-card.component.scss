@@ -1,7 +1,7 @@
 .results-card {
   width: 100%;
   text-align: left;
-  animation: fadeIn 0.5s ease-in-out; // Animação de entrada
+  animation: fadeIn 0.5s ease-in-out;
 
   .mat-mdc-card-header .mat-mdc-card-avatar {
     height: 48px;
@@ -10,7 +10,6 @@
   }
 }
 
-// Keyframes para a animação
 @keyframes fadeIn {
   from {
     opacity: 0;
