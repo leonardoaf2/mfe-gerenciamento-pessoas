@@ -1,4 +1,3 @@
-// Container principal para centralizar o conteúdo na tela
 .main-container {
   display: flex;
   justify-content: center;
@@ -6,16 +5,14 @@
   box-sizing: border-box;
 }
 
-// Wrapper para limitar a largura do conteúdo
 .content-wrapper {
   max-width: 800px;
   width: 100%;
-  display: flex; // ✅ Adicionado para organizar os cards
-  flex-direction: column; // ✅ Adicionado para empilhar os cards
-  gap: 2rem; // ✅ Adicionado para criar um espaço entre os cards
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-// Estilo para o card de busca
 .search-card {
   width: 100%;
 
@@ -47,7 +44,6 @@ mat-card-actions {
   margin-top: 1rem;
 }
 
-// ✅ NOVOS ESTILOS PARA O CARD DE RESULTADOS
 .results-card {
   width: 100%;
   text-align: left;
