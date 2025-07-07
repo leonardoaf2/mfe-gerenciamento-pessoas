@@ -42,21 +42,20 @@ Antes de começar, você vai precisar ter as seguintes ferramentas instaladas em
 
 1.  **Clone o repositório:**
     ```bash
-    # Altere a URL abaixo para a URL do seu repositório no GitHub/GitLab
-    git clone [https://github.com/seu-usuario/seu-repositorio.git](https://github.com/seu-usuario/seu-repositorio.git)
+    git clone [https://github.com/leonardoaf2/mfe-gerenciamento-pessoas.git](https://github.com/leonardoaf2/mfe-gerenciamento-pessoas.git)
     ```
 
 2.  **Navegue até a pasta do projeto:**
     ```bash
-    cd nome-do-repositorio
+    cd mfe-gerenciamento-pessoas
     ```
 
-3.  **Instale as dependências:**
+3.  **Instale as dependências (neste local):**
     ```bash
     npm install
     ```
 
-4.  **Execute a aplicação:**
+4.  **Execute a aplicação (neste local):**
     ```bash
     npm start
     ```
@@ -81,5 +80,4 @@ O projeto está configurado com Jest para testes unitários e possui 100% de cob
     Após a execução, uma pasta `coverage/` será criada na raiz do projeto. Abra o arquivo `index.html` dentro dela para ver o relatório detalhado no seu navegador.
 
 ---
-
 Feito por Leonardo.
