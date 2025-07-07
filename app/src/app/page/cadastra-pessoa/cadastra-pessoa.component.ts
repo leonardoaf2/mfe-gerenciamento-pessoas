@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { REGEX_PATTERNS } from '../../core/utils/padroes-validacao';
 
 @Component({
   selector: 'app-cadastra-pessoa',
@@ -12,20 +13,16 @@ export class CadastraPessoaComponent {
   public cadastroForm: FormGroup;
   public isLoading: boolean = false;
 
-  // Injetamos o FormBuilder para facilitar a criação do formulário
   constructor(
     private fb: FormBuilder,
     private _snackBar: MatSnackBar
   ) {
-    // Regex para validar e-mail
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-
-    this.cadastroForm = this.fb.group({
+      this.cadastroForm = this.fb.group({
       nome: ['', [Validators.required, Validators.minLength(3)]],
-      cpf: ['', [Validators.required, Validators.minLength(11), Validators.maxLength(11)]],
+      cpf: ['', [Validators.required, Validators.pattern(REGEX_PATTERNS.cpf)]],
       sexo: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.pattern(emailRegex)]],
-      telefone: ['', [Validators.required, Validators.minLength(10)]] // (xx) xxxx-xxxx ou (xx) xxxxx-xxxx
+      email: ['', [Validators.required, Validators.pattern(REGEX_PATTERNS.email)]],
+      telefone: ['', [Validators.required, Validators.minLength(10)]]
     });
   }
 
