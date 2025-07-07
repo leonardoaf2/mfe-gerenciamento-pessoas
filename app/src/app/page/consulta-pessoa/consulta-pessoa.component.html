@@ -1,0 +1,44 @@
+<app-header [exibirVoltar]="true"></app-header>
+
+<main class="main-container">
+  <div class="content-wrapper">
+    <mat-card class="search-card mat-elevation-z2">
+      <mat-card-content>
+        <mat-card-title>Consultar Pessoa por CPF</mat-card-title>
+        <p>
+          Digite o CPF da pessoa que você deseja consultar no campo abaixo e clique em buscar.
+        </p>
+        
+        <form [formGroup]="searchForm" (ngSubmit)="buscarPessoa()">
+          <mat-form-field appearance="outline" class="cpf-input">
+            <mat-label>CPF</mat-label>
+            <input matInput formControlName="cpf" placeholder="000.000.000-00" mask="000.000.000-00">
+            <mat-icon matSuffix>badge</mat-icon>
+            <mat-error *ngIf="searchForm.get('cpf')?.invalid && searchForm.get('cpf')?.touched">
+              Por favor, digite um CPF completo.
+            </mat-error>
+          </mat-form-field>
+        </form>
+
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button mat-raised-button color="primary" (click)="buscarPessoa()" [disabled]="searchForm.invalid || isLoading">
+          <div class="button-inner-wrapper">
+            <mat-progress-spinner *ngIf="isLoading" mode="indeterminate" diameter="20"></mat-progress-spinner>
+            <span *ngIf="!isLoading" class="button-content">
+              <mat-icon>search</mat-icon>
+              <span>Buscar</span>
+            </span>
+          </div>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+
+    <app-pessoa-card 
+      *ngIf="pessoaEncontrada" 
+      [pessoa]="pessoaEncontrada">
+    </app-pessoa-card>
+
+
+  </div>
+</main>
