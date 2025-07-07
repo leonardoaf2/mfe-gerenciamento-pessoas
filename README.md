@@ -42,21 +42,20 @@ Antes de começar, você vai precisar ter as seguintes ferramentas instaladas em
 
 1.  **Clone o repositório:**
     ```bash
-    # Altere a URL abaixo para a URL do seu repositório no GitHub/GitLab
-    git clone [https://github.com/seu-usuario/seu-repositorio.git](https://github.com/seu-usuario/seu-repositorio.git)
+    git clone [https://github.com/leonardoaf2/mfe-gerenciamento-pessoas.git](https://github.com/leonardoaf2/mfe-gerenciamento-pessoas.git)
     ```
 
 2.  **Navegue até a pasta do projeto:**
     ```bash
-    cd nome-do-repositorio
+    cd mfe-gerenciamento-pessoas
     ```
 
-3.  **Instale as dependências:**
+3.  **Instale as dependências (neste local):**
     ```bash
     npm install
     ```
 
-4.  **Execute a aplicação:**
+4.  **Execute a aplicação (neste local):**
     ```bash
     npm start
     ```
