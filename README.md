@@ -47,7 +47,7 @@ Antes de começar, você vai precisar ter as seguintes ferramentas instaladas em
 
 2.  **Navegue até a pasta do projeto:**
     ```bash
-    cd mfe-gerenciamento-pessoas
+    cd mfe-gerenciamento-pessoas/app
     ```
 
 3.  **Instale as dependências (neste local):**
