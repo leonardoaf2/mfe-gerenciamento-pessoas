@@ -1,0 +1,60 @@
+// Container principal para centralizar o conteúdo na tela
+.main-container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+// Wrapper para limitar a largura do conteúdo
+.content-wrapper {
+  max-width: 800px;
+  width: 100%;
+  display: flex; // ✅ Adicionado para organizar os cards
+  flex-direction: column; // ✅ Adicionado para empilhar os cards
+  gap: 2rem; // ✅ Adicionado para criar um espaço entre os cards
+}
+
+// Estilo para o card de busca
+.search-card {
+  width: 100%;
+
+  p {
+    color: #555;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.button-content {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cpf-input {
+  width: 100%;
+}
+
+::ng-deep .mat-mdc-snack-bar-container .mdc-snackbar__surface {
+  background-color: #d32f2f !important;
+}
+
+.button-inner-wrapper {
+  display: flex;
+}
+
+mat-card-actions {
+  margin-top: 1rem;
+}
+
+// ✅ NOVOS ESTILOS PARA O CARD DE RESULTADOS
+.results-card {
+  width: 100%;
+  text-align: left;
+
+  .mat-mdc-card-header .mat-mdc-card-avatar {
+    height: 48px;
+    width: 48px;
+    font-size: 48px;
+  }
+}

@@ -1,0 +1,27 @@
+<app-header [exibirVoltar]="false"></app-header>
+
+<main class="main-container">
+  <mat-card class="welcome-card mat-elevation-z2">
+
+    <h1 mat-card-title>
+      Bem-vindo ao <span class="mat-primary">Gerenciamento de Pessoas</span>
+    </h1>
+
+    <p mat-card-subtitle>
+      Esta aplicação permite que você cadastre e consulte informações de pessoas de forma eficiente e organizada.
+    </p>
+
+    <div class="actions-container" aria-label="Ações principais">
+      <button mat-raised-button color="primary" (click)="navigateToCadastro()" aria-label="Cadastrar nova pessoa">
+        <mat-icon>person_add</mat-icon>
+        <span>Cadastrar Nova Pessoa</span>
+      </button>
+
+      <button mat-raised-button color="accent" (click)="navigateToConsulta()" aria-label="Consultar pessoa">
+        <mat-icon>search</mat-icon>
+        <span>Consultar Pessoa</span>
+      </button>
+    </div>
+
+  </mat-card>
+</main>

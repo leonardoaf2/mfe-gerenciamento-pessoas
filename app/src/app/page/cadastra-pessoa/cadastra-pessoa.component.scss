@@ -1,0 +1,48 @@
+// Reutiliza os estilos do container principal
+.main-container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.content-wrapper {
+  max-width: 800px;
+  width: 100%;
+}
+
+.register-card {
+  width: 100%;
+}
+
+// Cria uma grade para os campos do formulário
+.form-grid {
+  display: grid;
+  margin-top: 10px;
+  gap: 1rem; // Espaço entre os campos
+  
+  // Em telas maiores, cria 2 colunas. Em telas menores, os campos se empilham.
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+::ng-deep .mat-mdc-snack-bar-container .mdc-snackbar__surface {
+    background-color: #4CAF50 !important; // Verde
+    color: white;
+}
+
+
+// Estilo para o botão de salvar
+mat-card-actions button[mat-raised-button] {
+  min-width: 180px;
+  justify-content: center;
+}
+
+.button-inner-wrapper {
+  display: flex;
+}
+
+.button-content {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}

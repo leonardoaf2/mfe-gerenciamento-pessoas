@@ -1,0 +1,28 @@
+<mat-toolbar color="primary">
+
+  <span class="title" *ngIf="!exibirVoltar">Gestão de Pessoas</span>
+  <div class="hide-mobile">
+    <a class="title clickable-title" *ngIf="exibirVoltar" mat-button (click)="navigateToHome()" aria-label="Voltar para home">
+      Home
+    </a>
+  </div>
+
+  <div class="show-mobile">
+    <button *ngIf="exibirVoltar" mat-icon-button (click)="navigateToHome()" aria-label="Voltar para home">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+  </div>
+
+  <span class="spacer"></span>
+
+  <a mat-button (click)="navigateToConsulta()" aria-label="Consultar pessoas">
+    <mat-icon>search</mat-icon>
+    <span class="hide-mobile">Consultar</span>
+  </a>
+
+  <a mat-button (click)="navigateToCadastro()" aria-label="Cadastrar nova pessoa">
+    <mat-icon>person_add</mat-icon>
+    <span class="hide-mobile">Cadastrar</span>
+  </a>
+
+</mat-toolbar>
