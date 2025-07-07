@@ -1,39 +1,22 @@
-// Precisamos importar o 'sass:map' para usar a função de merge.
 @use 'sass:map';
 @use '@angular/material' as mat;
 
-// Etapa obrigatória: Inclui os estilos base essenciais.
 @include mat.core();
 
-/* ========================================================================== */
-/* 1. DEFINIÇÃO DA PALETA CUSTOMIZADA (COM CONTRASTE CORRIGIDO)               */
-/* ========================================================================== */
-
-// Esta é a abordagem definitiva:
-// 1. Pegamos a paleta laranja padrão do Material.
-// 2. Usamos `map.deep-merge` para sobrescrever APENAS a cor de contraste do tom 700.
 $custom-orange-palette: map.deep-merge(
-  mat.$orange-palette, // A paleta base
-  ( // O mapa de customizações
+  mat.$orange-palette,
+  (
     contrast: (
-      700: white // Para o tom 700 (#F57C00), FORÇAR o texto a ser branco.
+      700: white
     )
   )
 );
 
-// Agora, criamos nossa paleta primária a partir da paleta customizada.
 $meu-app-primary: mat.define-palette($custom-orange-palette, 700);
 
-// Mantemos o cinza suave como cor de destaque (accent).
 $meu-app-accent: mat.define-palette(mat.$grey-palette, 200);
 
-// A cor de aviso padrão.
 $meu-app-warn: mat.define-palette(mat.$red-palette);
-
-
-/* ========================================================================== */
-/* 2. DEFINIÇÃO E APLICAÇÃO DO TEMA                                           */
-/* ========================================================================== */
 
 $meu-app-theme: mat.define-light-theme((
   color: (
@@ -43,12 +26,25 @@ $meu-app-theme: mat.define-light-theme((
   )
 ));
 
-// Aplica o tema a todos os componentes.
+.cdk-overlay-container.success-snackbar {
+  .mdc-snackbar__surface {
+    --mdc-snackbar-container-color: #4CAF50;
+  }
+  .mdc-snackbar__label, .mat-mdc-button.mat-unthemed {
+    color: white;
+  }
+}
+
+.cdk-overlay-container.error-snackbar {
+  .mdc-snackbar__surface {
+    --mdc-snackbar-container-color: #f44336;
+  }
+  .mdc-snackbar__label, .mat-mdc-button.mat-unthemed {
+    color: white;
+  }
+}
+
 @include mat.all-component-themes($meu-app-theme);
 
-
-/* ========================================================================== */
-/* 3. ESTILOS GLOBAIS PADRÃO                                                  */
-/* ========================================================================== */
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

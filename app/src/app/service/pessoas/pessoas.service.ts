@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-import { Pessoa } from '../core/models/pessoa.interface';
+import { Pessoa } from '../../core/models/pessoa.interface';
 
 @Injectable({
   providedIn: 'root'
