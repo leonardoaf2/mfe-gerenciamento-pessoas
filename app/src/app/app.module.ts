@@ -11,6 +11,9 @@ import { CadastraPessoaComponent } from './page/cadastra-pessoa/cadastra-pessoa.
 import { ConsultaPessoaComponent } from './page/consulta-pessoa/consulta-pessoa.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './core/service/in-memory-data.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,11 @@ import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
     SharedModule,
     NgxMaskDirective,
     NgxMaskPipe,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false, delay: 500 }
+    )
   ],
   providers: [
     provideAnimationsAsync(),

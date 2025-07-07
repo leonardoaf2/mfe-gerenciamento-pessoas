@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { finalize } from 'rxjs';
 import { Pessoa } from '../../core/models/pessoa.interface';
+import { PessoasService } from '../../service/pessoas.service';
 
 @Component({
   selector: 'app-consulta-pessoa',
@@ -12,10 +14,12 @@ export class ConsultaPessoaComponent {
 
   public searchForm: FormGroup;
   public isLoading: boolean = false;
-  // ✅ Variável para guardar os dados da pessoa encontrada
   public pessoaEncontrada: Pessoa | null = null;
 
-  constructor(private matSnackbar: MatSnackBar) {
+  constructor(
+    private matSnackbar: MatSnackBar,
+    private pessoasService: PessoasService
+  ) {
     this.searchForm = new FormGroup({
       cpf: new FormControl('', [
         Validators.required,
@@ -31,26 +35,19 @@ export class ConsultaPessoaComponent {
     }
 
     this.isLoading = true;
-    // ✅ Limpa o resultado anterior antes de uma nova busca
-    this.pessoaEncontrada = null; 
+    this.pessoaEncontrada = null;
     const cpfBuscado = this.searchForm.value.cpf;
 
-    setTimeout(() => {
-      if (cpfBuscado === '11111111111') {
-        // ✅ SUCESSO: Preenche o objeto com os dados da pessoa
-        this.pessoaEncontrada = {
-          nome: 'João da Silva',
-          cpf: '111.111.111-11',
-          sexo: 'Masculino',
-          email: 'joao.silva@exemplo.com',
-          telefone: '(11) 98765-4321'
-        };
-      } else {
-        this.exibirMensagemErro('Pessoa não encontrada. Verifique o CPF e tente novamente.');
+    this.pessoasService.buscarPessoaPorCpf(cpfBuscado).pipe(
+      finalize(() => this.isLoading = false)
+    ).subscribe({
+      next: (pessoa) => {
+        this.pessoaEncontrada = pessoa;
+      },
+      error: (err) => {
+        this.exibirMensagemErro(err.message);
       }
-
-      this.isLoading = false;
-    }, 1500);
+    });
   }
 
   exibirMensagemErro(mensagem: string): void {
