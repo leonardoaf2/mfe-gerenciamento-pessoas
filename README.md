@@ -1,84 +1,85 @@
-# mfe-gerenciamento-pessoas
+# Desafio Front-End: Gerenciamento de Pessoas com Angular
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Angular Version](https://img.shields.io/badge/Angular-v17-red?logo=angular)](https://angular.io/)
-[![Teste Unitário](https://img.shields.io/badge/Testes-Jest-brightgreen?logo=jest)](https://jestjs.io/)
+Aplicação web desenvolvida como parte de um desafio técnico para front-end, utilizando Angular 17. O sistema permite o cadastro e a consulta de pessoas, com formulários reativos, validações e uma interface moderna e responsiva construída com Angular Material.
 
-## 📝 Descrição do Projeto
+---
 
-Este projeto (`mfe-gerenciamento-pessoas`) é uma aplicação web front-end desenvolvida em **Angular v17**, focada no gerenciamento de dados de pessoas. Ele foi concebido com uma mentalidade de modularidade, preparando-o para futuras expansões em um contexto de **Micro Front-ends (MFE)**, embora atue como uma aplicação coesa neste momento.
+## Funcionalidades Implementadas
 
-O sistema demonstra a implementação de:
-* **Formulários Reativos:** Implementação de formulários altamente controlados e validados para cadastro e edição de informações como nome, CPF, sexo, e-mail e telefone.
-* **Consulta de Dados:** Funcionalidade de busca de pessoas por CPF, com exibição detalhada dos dados ou mensagem de "não encontrado".
-* **Arquitetura Preparada para MFE:** Embora seja uma aplicação coesa, o nome e a estrutura interna são pensados para uma futura expansão em um contexto de Micro Front-ends, promovendo modularidade e escalabilidade.
-* **Estilização e Responsividade:** Design moderno e adaptável a diferentes tamanhos de tela, garantindo uma ótima experiência de usuário em dispositivos desktop e móveis.
-* **Testes Unitários:** Ampla cobertura de testes para garantir a robustez e a qualidade do código.
-* **Mock de Serviço:** Utilização de um serviço de dados mockado para simular a integração com um backend.
+-   **Cadastro de Pessoas:** Formulário reativo com validações em tempo real para nome, CPF, sexo, e-mail e telefone.
+-   **Consulta de Pessoas:** Busca de usuários por CPF com feedback visual para carregamento, sucesso e erro.
+-   **Interface Responsiva:** As telas se adaptam a diferentes tamanhos de dispositivo, de desktops a celulares.
+-   **Notificações Customizadas:** Sistema de feedback ao usuário com snackbars personalizados para operações bem-sucedidas e para erros.
+-   **Simulação de Backend:** Utiliza a biblioteca `Angular In-Memory Web API` para simular um servidor RESTful, permitindo que a aplicação funcione de forma autônoma.
+-   **Arquitetura Orientada a Serviços:** A lógica de negócio é centralizada em serviços, desacoplando a interface da manipulação de dados.
 
-Este projeto serve como uma demonstração prática de boas práticas de desenvolvimento Angular, incluindo manipulação de formulários, validações, requisições de dados (mockadas) e princípios de design moderno.
+---
 
-## ✨ Funcionalidades Principais
+## Tecnologias Utilizadas
 
-* Criação, Leitura e Edição de informações de Pessoas.
-* Validação de campos (Nome, CPF, Sexo, E-mail, Telefone).
-* Busca de Pessoas por CPF.
-* Interface do usuário responsiva e intuitiva.
+-   **Framework Principal:** Angular 17
+-   **Linguagem:** TypeScript
+-   **Estilização:** Angular Material & SCSS
+-   **Programação Reativa:** RxJS
+-   **Testes:** Jest
+-   **Máscaras de Input:** ngx-mask
+-   **Mock de API:** Angular In-Memory Web API
 
-## 🚀 Tecnologias Utilizadas
+---
 
-* **Front-end:**
-    * [Angular](https://angular.io/) (v17 ou superior)
-    * [TypeScript](https://www.typescriptlang.org/)
-    * **Framework CSS/Design System:** (Escolha um e adicione aqui, ex: [Angular Material](https://material.angular.io/), [Tailwind CSS](https://tailwindcss.com/), [Bootstrap](https://getbootstrap.com/), [PrimeNG](https://primeng.org/))
-    * (Opcional, se você usou libs como `rxjs`, `ngrx`, etc., adicione aqui)
-* **Mock de API:**
-    * [Angular In-Memory Web API](https://angular.io/guide/http-client-in-memory-web-api) (Se você seguiu a sugestão)
-* **Testes:**
-    * [Jest](https://jestjs.io/) (Sugestão, mas indique qual você usou)
-    * (Outras libs de teste, se aplicável, ex: [Cypress](https://www.cypress.io/) para E2E)
-* **Ferramentas:**
-    * [Node.js](https://nodejs.org/en/)
-    * [Angular CLI](https://angular.io/cli)
-    * [Git](https://git-scm.com/)
+## Configuração e Execução do Projeto
 
-## 📋 Pré-requisitos
+Siga os passos abaixo para executar o projeto em seu ambiente local.
 
-Antes de começar, certifique-se de ter as seguintes ferramentas instaladas em sua máquina:
+### Pré-requisitos
 
-* [Node.js](https://nodejs.org/en/download/) (versão 20.x ou superior)
-* [Angular CLI](https://angular.io/cli) (v17.x.x)
-* [Git](https://git-scm.com/downloads)
+Antes de começar, você vai precisar ter as seguintes ferramentas instaladas em sua máquina:
+-   [Node.js](https://nodejs.org/en/) (versão 18.x ou superior recomendada)
+-   [Angular CLI](https://angular.dev/cli) (ex: `npm install -g @angular/cli`)
+-   [Git](https://git-scm.com/)
 
-## ⚙️ Configuração e Execução do Projeto
-
-Siga os passos abaixo para configurar e rodar o projeto localmente:
+### Passo a Passo
 
 1.  **Clone o repositório:**
     ```bash
-    git clone [https://github.com/leonardoaf2/mfe-gerenciamento-pessoas.git](https://github.com/leonardoaf2/mfe-gerenciamento-pessoas.git)
+    # Altere a URL abaixo para a URL do seu repositório no GitHub/GitLab
+    git clone [https://github.com/seu-usuario/seu-repositorio.git](https://github.com/seu-usuario/seu-repositorio.git)
     ```
-2.  **Navegue até a pasta da aplicação:**
+
+2.  **Navegue até a pasta do projeto:**
     ```bash
-    cd mfe-gerenciamento-pessoas/app
+    cd nome-do-repositorio
     ```
+
 3.  **Instale as dependências:**
     ```bash
     npm install
     ```
-    ou
-    ```bash
-    yarn install
-    ```
+
 4.  **Execute a aplicação:**
     ```bash
-    ng serve
+    npm start
     ```
-    O servidor de desenvolvimento será iniciado e a aplicação estará disponível em `http://localhost:4200/`. O aplicativo será recarregado automaticamente se você alterar qualquer um dos arquivos de origem.
 
-## 🧪 Rodando os Testes
+A aplicação estará disponível no seu navegador em `http://localhost:4200/`.
 
-Para executar os testes unitários do projeto:
+---
 
-```bash
-ng test
+## Rodando os Testes Unitários
+
+O projeto está configurado com Jest para testes unitários e possui 100% de cobertura de testes para a camada de serviços.
+
+1.  **Para rodar os testes uma vez:**
+    ```bash
+    npm test
+    ```
+
+2.  **Para rodar os testes e gerar o relatório de cobertura:**
+    ```bash
+    npm run test:coverage
+    ```
+    Após a execução, uma pasta `coverage/` será criada na raiz do projeto. Abra o arquivo `index.html` dentro dela para ver o relatório detalhado no seu navegador.
+
+---
+
+Feito por Leonardo.

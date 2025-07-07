@@ -1,0 +1,56 @@
+.main-container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.content-wrapper {
+  max-width: 800px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.search-card {
+  width: 100%;
+
+  p {
+    color: #555;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.button-content {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cpf-input {
+  width: 100%;
+}
+
+::ng-deep .mat-mdc-snack-bar-container .mdc-snackbar__surface {
+  background-color: #d32f2f !important;
+}
+
+.button-inner-wrapper {
+  display: flex;
+}
+
+mat-card-actions {
+  margin-top: 1rem;
+}
+
+.results-card {
+  width: 100%;
+  text-align: left;
+
+  .mat-mdc-card-header .mat-mdc-card-avatar {
+    height: 48px;
+    width: 48px;
+    font-size: 48px;
+  }
+}

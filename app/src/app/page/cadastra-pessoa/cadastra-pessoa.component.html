@@ -1,0 +1,86 @@
+<app-header [exibirVoltar]="true"></app-header>
+
+<main class="main-container">
+  <div class="content-wrapper">
+    <mat-card class="register-card mat-elevation-z2">
+      <mat-card-content>
+        <mat-card-title>Cadastrar Nova Pessoa</mat-card-title>
+        <mat-card-subtitle>
+          Preencha os campos abaixo para registrar uma nova pessoa no sistema.
+        </mat-card-subtitle>
+
+        <form [formGroup]="cadastroForm" (ngSubmit)="cadastrarPessoa()" class="form-grid">
+          <mat-form-field appearance="outline">
+            <mat-label>Nome Completo</mat-label>
+            <input matInput formControlName="nome" placeholder="Ex: João da Silva" />
+            <mat-error *ngIf="cadastroForm.get('nome')?.hasError('required')">
+              Nome é obrigatório.
+            </mat-error>
+            <mat-error *ngIf="cadastroForm.get('nome')?.hasError('minlength')">
+              O nome deve ter no mínimo 3 caracteres.
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>CPF</mat-label>
+            <input matInput formControlName="cpf" mask="000.000.000-00" placeholder="000.000.000-00" />
+            <mat-error *ngIf="cadastroForm.get('cpf')?.hasError('required')">
+              CPF é obrigatório.
+            </mat-error>
+            <mat-error *ngIf="cadastroForm.get('cpf')?.hasError('pattern')">
+              Formato de CPF inválido.
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Sexo</mat-label>
+            <mat-select formControlName="sexo">
+              <mat-option value="masculino">Masculino</mat-option>
+              <mat-option value="feminino">Feminino</mat-option>
+              <mat-option value="outro">Outro</mat-option>
+            </mat-select>
+            <mat-error *ngIf="cadastroForm.get('sexo')?.hasError('required')">
+              Sexo é obrigatório.
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>E-mail</mat-label>
+            <input matInput formControlName="email" type="email" placeholder="Ex: email@exemplo.com" />
+            <mat-error *ngIf="cadastroForm.get('email')?.hasError('required')">
+              E-mail é obrigatório.
+            </mat-error>
+            <mat-error *ngIf="cadastroForm.get('email')?.hasError('pattern')">
+              Formato de e-mail inválido.
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Telefone</mat-label>
+            <input matInput formControlName="telefone" mask="(00) 0000-0000||(00) 0 0000-0000"
+              placeholder="(00) 99999-9999" />
+            <mat-error *ngIf="cadastroForm.get('telefone')?.hasError('required')">
+              Telefone é obrigatório.
+            </mat-error>
+            <mat-error *ngIf="cadastroForm.get('telefone')?.hasError('minlength')">
+              Telefone incompleto.
+            </mat-error>
+          </mat-form-field>
+        </form>
+      </mat-card-content>
+
+      <mat-card-actions align="end">
+        <button mat-raised-button color="primary" (click)="cadastrarPessoa()"
+          [disabled]="cadastroForm.invalid || isLoading">
+          <div class="button-inner-wrapper">
+            <mat-progress-spinner *ngIf="isLoading" mode="indeterminate" diameter="20"></mat-progress-spinner>
+            <span *ngIf="!isLoading" class="button-content">
+              <mat-icon>save</mat-icon>
+              <span>Salvar Cadastro</span>
+            </span>
+          </div>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</main>

@@ -1,0 +1,60 @@
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 64px);
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.welcome-card {
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+  padding: 2rem;
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.actions-container {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .welcome-card h1 {
+    font-size: 2rem;
+  }
+
+  .welcome-card p {
+    font-size: 1rem;
+  }
+
+  .actions-container {
+    flex-direction: column;
+    width: 100%;
+
+    button {
+      width: 100%;
+    }
+  }
+}

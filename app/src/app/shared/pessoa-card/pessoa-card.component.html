@@ -1,0 +1,14 @@
+<mat-card class="results-card mat-elevation-z4">
+  <mat-card-header>
+      <mat-icon mat-card-avatar>account_circle</mat-icon>
+      <mat-card-title>{{ pessoa.nome }}</mat-card-title>
+      <mat-card-subtitle>{{ pessoa.email }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list role="list">
+      <mat-list-item role="listitem"><strong>CPF:</strong> {{ pessoa.cpf }}</mat-list-item>
+      <mat-list-item role="listitem"><strong>Sexo:</strong> {{ pessoa.sexo }}</mat-list-item>
+      <mat-list-item role="listitem"><strong>Telefone:</strong> {{ pessoa.telefone }}</mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
