@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { finalize } from 'rxjs';
 import { Pessoa } from '../../core/models/pessoa.interface';
-import { PessoasService } from '../../service/pessoas.service';
+import { PessoasService } from '../../service/pessoas/pessoas.service';
+import { NotificationService } from '../../service/notification/notification.service';
 
 @Component({
   selector: 'app-consulta-pessoa',
@@ -17,8 +17,8 @@ export class ConsultaPessoaComponent {
   public pessoaEncontrada: Pessoa | null = null;
 
   constructor(
-    private matSnackbar: MatSnackBar,
-    private pessoasService: PessoasService
+    private pessoasService: PessoasService,
+    private notificationService: NotificationService
   ) {
     this.searchForm = new FormGroup({
       cpf: new FormControl('', [
@@ -45,16 +45,9 @@ export class ConsultaPessoaComponent {
         this.pessoaEncontrada = pessoa;
       },
       error: (err) => {
-        this.exibirMensagemErro(err.message);
+        this.notificationService.showError('Pessoa não encontrada. Verifique o CPF e tente novamente.');
       }
     });
   }
 
-  exibirMensagemErro(mensagem: string): void {
-    this.matSnackbar.open(mensagem, 'Fechar', {
-      duration: 5000,
-      verticalPosition: 'top',
-      horizontalPosition: 'center',
-    });
-  }
 }

@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { REGEX_PATTERNS } from '../../core/utils/padroes-validacao';
-import { PessoasService } from '../../service/pessoas.service';
 import { finalize } from 'rxjs';
+import { REGEX_PATTERNS } from '../../core/utils/padroes-validacao';
+import { PessoasService } from '../../service/pessoas/pessoas.service';
+import { NotificationService } from '../../service/notification/notification.service';
 import { Pessoa } from '../../core/models/pessoa.interface';
 
 @Component({
@@ -18,10 +18,10 @@ export class CadastraPessoaComponent {
 
   constructor(
     private fb: FormBuilder,
-    private matSnackbar: MatSnackBar,
-    private pessoasService: PessoasService
+    private pessoasService: PessoasService,
+    private notificationService: NotificationService
   ) {
-      this.cadastroForm = this.fb.group({
+    this.cadastroForm = this.fb.group({
       nome: ['', [Validators.required, Validators.minLength(3)]],
       cpf: ['', [Validators.required, Validators.pattern(REGEX_PATTERNS.cpf)]],
       sexo: ['', [Validators.required]],
@@ -42,31 +42,14 @@ export class CadastraPessoaComponent {
     this.pessoasService.cadastrarPessoa(novaPessoa).pipe(
       finalize(() => this.isLoading = false)
     ).subscribe({
-      next: (pessoaCadastrada) => {
-        console.log('API retornou:', pessoaCadastrada);
-        this.exibirMensagemSucesso('Pessoa cadastrada com sucesso!');
+      next: () => {
+        this.notificationService.showSuccess('Pessoa cadastrada com sucesso!');
         this.cadastroForm.reset();
       },
       error: (err) => {
-        this.exibirMensagemErro('Ocorreu um erro ao cadastrar.');
+        this.notificationService.showError('Ocorreu um erro ao cadastrar a pessoa.');
         console.error(err);
       }
-    });
-  }
-
-  exibirMensagemSucesso(mensagem: string): void {
-    this.matSnackbar.open(mensagem, 'OK', {
-      duration: 3000,
-      verticalPosition: 'top',
-      horizontalPosition: 'center',
-    });
-  }
-
-  exibirMensagemErro(mensagem: string): void {
-    this.matSnackbar.open(mensagem, 'Fechar', {
-      duration: 5000,
-      verticalPosition: 'top',
-      horizontalPosition: 'center',
     });
   }
 
