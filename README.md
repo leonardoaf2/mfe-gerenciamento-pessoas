@@ -80,5 +80,4 @@ O projeto está configurado com Jest para testes unitários e possui 100% de cob
     Após a execução, uma pasta `coverage/` será criada na raiz do projeto. Abra o arquivo `index.html` dentro dela para ver o relatório detalhado no seu navegador.
 
 ---
-
 Feito por Leonardo.
